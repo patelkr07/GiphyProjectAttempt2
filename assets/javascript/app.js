@@ -2,9 +2,9 @@ $(document).ready(function() {
 
     $("button").on("click", function() {
 
-        var person = $(this).attr("data-car");
+        var car = $(this).attr("data-car");
 
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=ke46yN1pXZHc3sQU577y1Y4KoyJBtIZy&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + car + "&api_key=ke46yN1pXZHc3sQU577y1Y4KoyJBtIZy&limit=10";
 
 
     $.ajax({
@@ -13,6 +13,7 @@ $(document).ready(function() {
     })
 
         .then(function(response) {
+
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
@@ -25,12 +26,12 @@ $(document).ready(function() {
 
                     var p = $("<p>").text("Rating: " + rating);
 
-                    var personImage = $("<img>");
+                    var carImage = $("<img>");
 
-                    personImage.attr("src", results[i].images.fixed_height.url);
+                    carImage.attr("src", results[i].images.fixed_height.url);
 
                     gifDiv.append(p);
-                    gifDiv.append(personImage);
+                    gifDiv.append(carImage);
 
                     $("#gifs-appear-here").prepend(gifDiv);
                 }
