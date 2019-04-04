@@ -1,6 +1,8 @@
-$(document).ready(function() {
+var queries = ["BMW", "Kia", "Lexus", "Honda", "Tesla", "Ferrari"];
 
-    $("button").on("click", function() {
+$(document).ready(function () {
+
+    $("button").on("click", function displayCarInfo() {
 
         var car = $(this).attr("data-car");
 
@@ -40,3 +42,40 @@ $(document).ready(function() {
     });
 
 });
+
+function renderButtons() {
+
+    $("#buttons-view").empty();
+
+    for (var i = 0; i < queries.length; i++) {
+
+        var a = $("<button>");
+
+        a.addClass("car-btn");
+
+        a.attr("data-car", queries[i]);
+
+        a.text(queries[i]);
+
+        const button2 = $("<button>").addClass('car-btn')
+                                     .attr('data-car', queries[i])
+                                     .text(queries[i]);
+        $("#buttons-view").append(a);
+        
+    }
+}
+
+$("#add-car").on("click", function(event) {
+    event.preventDefault();
+
+    var car = $("#car-input").val().trim();
+
+    queries.push(car);
+
+    renderButtons();
+});
+
+$(document).on("click", ".car-btn", displayCarInfo);
+
+renderButtons();
+

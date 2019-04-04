@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Car Giphy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
 </head>
@@ -15,6 +16,21 @@
     <button data-car="Tesla">Tesla</button>
     <button data-car="Ferrari">Ferrari</button>
 
+    <!-- button holder -->
+    <div id="buttons-view"></div>
+
+    <!-- input form for new entries-->
+    <form id="car-form">
+        <label for="car-input">Add a car!</label>
+        <input type="text" id="car-input">
+        <br>
+
+        <input id="add-car" type="submit" value="Add a car!">
+    </form>
+
+    <div id="cars-view"></div>
+
+    
     <div id="gifs-appear-here">
     </div>
    
